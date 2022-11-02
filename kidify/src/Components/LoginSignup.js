@@ -94,7 +94,6 @@ const LoginSignup = ({ handleClose, setUser }) => {
                 {errors.username && <p>Username is required.</p>}
                 <input placeholder='Password' type='password' {...register("password", { required: true, minLength: 6 })} />
                 {errors.password && <p>Password is required.</p>}
-                <input placeholder='Upload Image' {...register("userImg")} />
                 <input placeholder='Age' {...register("age", { pattern: /\d+/ })} />
                 {errors.age && <p>Please enter number for age.</p>}
                 <input onClick={handleSubmit(onRegisterSubmit)} type='submit' value='Submit' className='submit' />
