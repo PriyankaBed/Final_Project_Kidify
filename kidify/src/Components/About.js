@@ -1,6 +1,7 @@
 import { CDBBox, CDBBtn, CDBIcon } from "cdbreact";
 import Card from "react-bootstrap/Card";
 import Team1 from "../Images/team_1.jpg";
+import Team2 from "../Images/maria.jpeg";
 
 function About() {
     return (
@@ -67,7 +68,7 @@ function About() {
                             </div>
                             <div className='aboutcard_2'>
                                 <Card style={{ width: "18rem" }}>
-                                    <Card.Img variant='top' src={Team1} alt='team1' />
+                                    <Card.Img variant='top' src={Team2} alt='team1' />
                                     <Card.Body>
                                         <Card.Title>Maria Vlasopoulou</Card.Title>
                                         <Card.Text>Full Stack Developer</Card.Text>

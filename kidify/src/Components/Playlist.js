@@ -1,22 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import VideoItem from "./VideoItem";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
-function Playlist({ user }) {
-    return (
-        <div>
-            {user.favorites.length > 0 ? (
-                user.favorites.map((favorite, index) => {
-                    return (
-                        <div key={index} className='card-container'>
-                            <VideoItem video={favorite} />
-                        </div>
-                    );
-                })
-            ) : (
-                <div>Your list is empty. Start adding your favorite videos.</div>
-            )}
-        </div>
-    );
+function Playlist({user}) {
+
+  const { playlist_id } = useParams();
+  const [playlistInfo, setPlaylistInfo] = useState();
+
+    useEffect(() => { 
+          axios
+          .get(`http://localhost:4000/users/profile/${playlist_id}`, {
+            withCredentials: true
+          })
+          .then((response) => {
+            console.log(response.data);
+            setPlaylistInfo(response.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }, [playlist_id]);
+
+  return (
+    <div>
+      <h4>{playlistInfo.name}</h4>
+        {playlistInfo &&
+          playlistInfo.videos.map((item, index) => {
+            return <div key={index} className="card-container"><VideoItem video={item} /></div>;
+          })
+        }
+    </div>
+  );
 }
 
 export default Playlist;
