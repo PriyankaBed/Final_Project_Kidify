@@ -1,6 +1,6 @@
 import VideoItem from "./VideoItem";
 
-function Homepage({ data }) {
+function Homepage({ data, user }) {
   return (
     <div className="homepage">
       <div className="container">
@@ -8,7 +8,7 @@ function Homepage({ data }) {
           {data.map((dataItem, index) => {
             return (
               <div className="card-container" key={index}>
-                <VideoItem video={dataItem} />
+                <VideoItem video={dataItem} user={user}/>
               </div>
             );
           })}
