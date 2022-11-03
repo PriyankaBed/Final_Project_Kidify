@@ -43,7 +43,7 @@ function Sidebar({ user, logout }) {
               </CDBSidebarHeader>
               <CDBSidebarContent className="sidebar-content">
                   <NavLink to="/profile" activeclassname="activeClicked">
-                    <CDBSidebarMenuItem textFontSize="18px">
+                    <CDBSidebarMenuItem textColor="#fff" textDecoration="none" textFontSize="18px">
                       Favorites
                     </CDBSidebarMenuItem>
                   </NavLink>
@@ -52,7 +52,7 @@ function Sidebar({ user, logout }) {
                     activeclassname="activeClicked"
                     onClick={logout}
                   >
-                    <CDBSidebarMenuItem textFontSize="18px">
+                    <CDBSidebarMenuItem textColor="#fff" textDecoration="none" textFontSize="18px">
                       Logout
                     </CDBSidebarMenuItem>
                   </NavLink>
