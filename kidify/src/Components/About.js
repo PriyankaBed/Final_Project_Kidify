@@ -25,7 +25,7 @@ function About() {
                         <h1 style={{ fontFamily: "cursive" }}>Our mission</h1>
                     </div>
 
-                    <p>is to Create a website with fun educational videos for kids. you to watch fun educational videos for children from all around the web. play playlists and relax.</p>
+                    <p>is to Create a website with fun educational videos for kids. you to watch fun educational videos for children from all around the web.</p>
                     <p>Our vision is for the website to be the source of childhood learning on the internet.</p>
                     <p>You can watch all provided videos and Add Videos in Favorite list with signing up. We will add playlist feature function in future.
                     But behold: as soon as you log out, your portal will close. If you want kidify to maintain your portal, sign up!</p>
