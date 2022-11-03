@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import { useSpring, animated } from "react-spring";
-import axios from "axios";
+import axios from "../axiosClient";
 import { useForm } from "react-hook-form";
 
 const LoginSignup = ({ handleClose, setUser }) => {
@@ -32,7 +32,7 @@ const LoginSignup = ({ handleClose, setUser }) => {
 
     const onRegisterSubmit = (data) => {
         axios
-            .post(`http://localhost:4000/auth/signup`, data, {
+            .post(`/auth/signup`, data, {
                 withCredentials: true,
             })
             .then((response) => {
@@ -47,7 +47,7 @@ const LoginSignup = ({ handleClose, setUser }) => {
     const onLoginSubmit = (data, e) => {
         e.preventDefault();
         axios
-            .post(`http://localhost:4000/auth/login`, data, {
+            .post(`/auth/login`, data, {
                 withCredentials: true,
             })
             .then((response) => {

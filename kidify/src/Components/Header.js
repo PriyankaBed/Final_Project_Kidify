@@ -9,7 +9,7 @@ import Logo from "../Images/kidify-logo.png";
 import Modal from "react-bootstrap/Modal";
 import LoginSignup from "./LoginSignup";
 import Avatar from "react-avatar";
-import axios from "axios";
+import axios from "../axiosClient";
 import { NavLink } from "react-router-dom";
 
 function Header({ user, setUser, loading, data, setData }) {
@@ -32,7 +32,7 @@ function Header({ user, setUser, loading, data, setData }) {
 
   const logout = () => {
     axios
-      .get(`http://localhost:4000/auth/logout`, {
+      .get(`/auth/logout`, {
         withCredentials: true,
       })
       .then((response) => {

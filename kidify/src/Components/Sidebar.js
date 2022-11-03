@@ -7,14 +7,14 @@ import {
   CDBSidebarMenuItem,
 } from "cdbreact";
 import { NavLink, useParams } from "react-router-dom";
-import axios from "axios";
+import axios from "../axiosClient";
 
 function Sidebar({ user, logout }) {
    const [playlists, setPlaylists] = useState();
 
     useEffect(() => { 
           axios
-          .get(`http://localhost:4000/users/profile/playlists`, {
+          .get(`/users/profile/playlists`, {
             withCredentials: true
           })
           .then((response) => {

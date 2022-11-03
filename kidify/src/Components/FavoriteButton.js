@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { CDBBtn } from 'cdbreact';
+import axios from "../axiosClient";
+import { CDBBtn } from "cdbreact";
 import React, { useState } from "react";
 import Favorite from "../Images/favorite.png";
 import FavoriteImage from "../Images/favorite-pressed.png";
@@ -15,43 +15,48 @@ function FavoriteButton({ user, userFrom, videoId, videoInfo }) {
     video_img_url: videoInfo.video_img_url,
     short_description: videoInfo.short_description,
     category: videoInfo.category,
-    userFrom: userFrom
-    }
-    console.log(user?.favorites.includes(videoId))
+    userFrom: userFrom,
+  };
+  console.log(user?.favorites.includes(videoId));
 
   const onClickFavorite = () => {
     if (favorite) {
-      axios.put(`http://localhost:4000/users/profile/favorites/removeFromFavorites`, variable, {
-        withCredentials: true
-      })
-      .then(res => {
-        if(res.data) {
-          setFavorite(!favorite)
-        } else {
-          alert('Failed to remove from favorites')
-        }
-      })
-
+      axios
+        .put(`/users/profile/favorites/removeFromFavorites`, variable, {
+          withCredentials: true,
+        })
+        .then((res) => {
+          if (res.data) {
+            setFavorite(!favorite);
+          } else {
+            alert("Failed to remove from favorites");
+          }
+        });
     } else {
-      axios.put(`http://localhost:4000/users/profile/favorites/addToFavorites`, variable, {
-        withCredentials: true
-      })
-      .then(res => {
-        if(res.data) {
-          setFavorite(!favorite)
-        } else {
-          alert('Failed to add to favorites')
-        }
-      })
+      axios
+        .put(`/users/profile/favorites/addToFavorites`, variable, {
+          withCredentials: true,
+        })
+        .then((res) => {
+          if (res.data) {
+            setFavorite(!favorite);
+          } else {
+            alert("Failed to add to favorites");
+          }
+        });
     }
-  }
+  };
 
   return (
-      <div>
-        <CDBBtn className="favorite-button" onClick={onClickFavorite}>
-          {favorite ? <img src={FavoriteImage} alt="favorited" /> : <img src={Favorite} alt="notfavorite"/>}
+    <div>
+      <CDBBtn className="favorite-button" onClick={onClickFavorite}>
+        {favorite ? (
+          <img src={FavoriteImage} alt="favorited" />
+        ) : (
+          <img src={Favorite} alt="notfavorite" />
+        )}
       </CDBBtn>
-      </div>
+    </div>
   );
 }
 

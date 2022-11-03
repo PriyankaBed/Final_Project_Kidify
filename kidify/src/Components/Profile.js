@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "../axiosClient";
 import VideoItem from "./VideoItem";
 import Sidebar from "./Sidebar";
 
@@ -9,7 +9,7 @@ function Profile({ user, setUser }) {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:4000/users/profile`, {
+            .get(`/users/profile`, {
                 withCredentials: true,
             })
             .then((response) => {
@@ -21,7 +21,7 @@ function Profile({ user, setUser }) {
             });
 
         axios
-            .get(`http://localhost:4000/users/profile/favorites`, {
+            .get(`/users/profile/favorites`, {
                 withCredentials: true,
             })
             .then((response) => {
@@ -34,7 +34,7 @@ function Profile({ user, setUser }) {
 
     const logout = () => {
         axios
-            .get(`http://localhost:4000/auth/logout`, {
+            .get(`/auth/logout`, {
                 withCredentials: true,
             })
             .then((response) => {

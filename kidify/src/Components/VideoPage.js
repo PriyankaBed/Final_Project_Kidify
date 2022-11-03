@@ -2,7 +2,7 @@ import YouTube from "@u-wave/react-youtube";
 import FavoriteButton from "./FavoriteButton";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import axios from "../axiosClient";
 import AddToPlaylistImage from "../Images/add_to_playlist.png";
 import { Button, Modal } from "react-bootstrap";
 
@@ -15,7 +15,7 @@ const VideoPage = ({ user }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/videos/${id}`)
+      .get(`/videos/${id}`)
       .then((response) => {
         console.log(response.data);
         setVideoInfo(response.data);
@@ -25,7 +25,7 @@ const VideoPage = ({ user }) => {
       });
 
       axios
-      .get(`http://localhost:4000/users/profile/playlists`, {
+      .get(`/users/profile/playlists`, {
         withCredentials: true
       })
       .then((response) => {
@@ -44,7 +44,7 @@ const VideoPage = ({ user }) => {
 
   const addVideoToPlaylist = (data) => {
     axios
-      .put("http://localhost:4000/users/profile/playlists/add-video", data, {
+      .put("/users/profile/playlists/add-video", data, {
         withCredentials: true,
       })
       .then((response) => {});

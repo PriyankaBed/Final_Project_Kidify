@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import axios from "axios";
+import axios from "./axiosClient";
 import Homepage from "./Components/Homepage";
 import About from "./Components/About";
 import Profile from "./Components/Profile";
@@ -25,7 +25,7 @@ function App() {
 
     useEffect(() => {
         axios
-            .get(`http://localhost:4000/videos`)
+            .get(`/videos`)
             .then((response) => {
                 setData(response.data);
                 setShownData(response.data);
@@ -33,7 +33,7 @@ function App() {
             .catch((err) => alert(err));
 
         axios
-            .get(`http://localhost:4000/users/profile`, {
+            .get(`/users/profile`, {
                 withCredentials: true,
             })
             .then((response) => {

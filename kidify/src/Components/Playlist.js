@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import VideoItem from "./VideoItem";
 import { useParams } from "react-router-dom";
-import axios from "axios";
+import axios from "../axiosClient";
 
 function Playlist({user}) {
 
@@ -10,7 +10,7 @@ function Playlist({user}) {
 
     useEffect(() => { 
           axios
-          .get(`http://localhost:4000/users/profile/${playlist_id}`, {
+          .get(`/users/profile/${playlist_id}`, {
             withCredentials: true
           })
           .then((response) => {
