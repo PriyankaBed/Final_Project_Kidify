@@ -42,36 +42,6 @@ function Sidebar({ user, logout }) {
                 <h4>Hello, {user.first_name} </h4>
               </CDBSidebarHeader>
               <CDBSidebarContent className="sidebar-content">
-                <NavLink
-                  to="/profile/create-playlist"
-                  activeclassname="activeClicked"
-                >
-                  <CDBSidebarMenuItem textFontSize="18px">
-                    Create new Playlist
-                  </CDBSidebarMenuItem>
-                </NavLink>
-                <CDBSidebarMenu>
-                  <p className="playlists-title">My Playlists</p>
-                  {playlists ? (playlists.map((listItem) => {
-                    return(
-                    <NavLink to={`/profile/${listItem._id}`} activeclassname="activeClicked">
-                    <CDBSidebarMenuItem textFontSize="18px" className="ps-5">
-                      {listItem.name}
-                    </CDBSidebarMenuItem>
-                  </NavLink>
-                  )
-                  })):(<div>No playlist</div>)}
-                  
-                  <NavLink to="/:id_playlist" activeclassname="activeClicked">
-                    <CDBSidebarMenuItem textFontSize="18px" className="ps-5">
-                      Playlist 2
-                    </CDBSidebarMenuItem>
-                  </NavLink>
-                  <NavLink to="/:id_playlist" activeclassname="activeClicked">
-                    <CDBSidebarMenuItem textFontSize="18px" className="ps-5">
-                      Playlist 3
-                    </CDBSidebarMenuItem>
-                  </NavLink>
                   <NavLink to="/profile" activeclassname="activeClicked">
                     <CDBSidebarMenuItem textFontSize="18px">
                       Favorites
