@@ -56,7 +56,6 @@ function Sidebar({ user, logout }) {
                       Logout
                     </CDBSidebarMenuItem>
                   </NavLink>
-                </CDBSidebarMenu>
               </CDBSidebarContent>
             </CDBSidebar>
           </div>
