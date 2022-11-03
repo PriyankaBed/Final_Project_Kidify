@@ -72,34 +72,6 @@ const VideoPage = ({ user }) => {
                     videoId={videoInfo._id}
                     videoInfo={videoInfo}
                   />
-                  <div className="playlist_icon">
-                    <img
-                      onClick={handleModal}
-                      src={AddToPlaylistImage}
-                      alt="favorite"
-                    />
-                  </div>
-                  <Modal show={show} onHide={handleModal}>
-                    <Modal.Header>
-                      Choose playlist
-                    </Modal.Header>
-                    <Modal.Body>
-                    <div className="profile-video-cards">
-            {playlistsList.length > 0 ? (
-              playlistsList.map((listItem) => {
-                return (
-                  <p>{listItem.name}</p>
-                );
-              })
-            ) : (
-              <div> Your list is empty. Start adding your favorite videos.</div>
-            )}
-          </div>
-                    </Modal.Body>
-                    <Modal.Footer>
-                      <Button onClick={handleModal}>Close</Button>
-                    </Modal.Footer>
-                  </Modal>
                 </>
               ) : null}
             </div>
